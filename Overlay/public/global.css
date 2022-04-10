@@ -1,0 +1,26 @@
+@font-face {
+	font-family: IntegralCF-Regular;
+	src: url("./IntegralCF-Regular.otf");
+}
+
+@font-face {
+	font-family: 'Integral CF';
+	src: url("./IntegralCF-Regular.otf");
+}
+
+@font-face {
+	font-family: Hermes-Regular;
+	src: url("./Hermes-Regular.otf");
+}
+
+html,
+body {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	margin: 0px auto;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}

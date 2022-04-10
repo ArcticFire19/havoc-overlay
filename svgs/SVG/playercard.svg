@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 326 29.36">
+  <defs>
+    <linearGradient id="linear-gradient" x1="2.43" y1="14.68" x2="323.56" y2="14.68" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#12b2d6"/>
+      <stop offset="1" stop-color="#255ca8"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="playercard">
+      <polygon id="Background-pc" points="295.94 28.36 2.43 28.36 30.05 1 323.56 1 295.94 28.36" style="fill: #fff;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+      <polygon id="Gradient-pc" points="295.94 28.36 2.43 28.36 30.05 1 323.56 1 295.94 28.36" style="fill: url(#linear-gradient)"/>
+      <text id="playername" transform="translate(28.93 21.36)" style="font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.03em">TempName</text>
+      <text id="boost" transform="translate(258.69 21.36)" style="font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.01em">100</text>
+    </g>
+  </g>
+</svg>
