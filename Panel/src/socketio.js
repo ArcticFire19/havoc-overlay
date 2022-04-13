@@ -34,7 +34,7 @@ export const updateScreen = () => {
       },
   };
   //data = JSON.parse(data);
-  //console.log(data);
+  console.log(data);
   socket.emit("payload", data);
 }
 
