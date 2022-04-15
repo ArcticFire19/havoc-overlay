@@ -13,7 +13,7 @@
 		}
 	}
 	function orngUp() {
-		if (document.getElementById("orngWins").value != 4) {
+		if (document.getElementById("orngWins").value != 4) {v
 			document.getElementById("orngWins").value =
 				parseInt(document.getElementById("orngWins").value) + 1;
 		}
@@ -69,57 +69,22 @@
 
 
 	function bluecolor3() {
-		document.getElementById("blueTeamPicker").value =
-			document.getElementById("blueTeamColor").value;
+		document.getElementById("blueOverridePicker").value =
+			document.getElementById("blueOverride").value;
 	}
 	function orangecolor3() {
-		document.getElementById("orangepicker2").value =
-			document.getElementById("orng-color-2").value;
+		document.getElementById("orngOverridePicker").value =
+			document.getElementById("orngOverride").value;
 	}
 	function bluecolortobox3() {
-		document.getElementById("blueTeamColor").value =
-			document.getElementById("blueTeamPicker").value;
+		document.getElementById("blueOverride").value =
+			document.getElementById("blueOverridePicker").value;
 	}
 	function orangecolortobox3() {
-		document.getElementById("orng-color-2").value =
-			document.getElementById("orangepicker2").value;
+		document.getElementById("orngOverride").value =
+			document.getElementById("orngOverridePicker").value;
 	}
 
-
-	function bluecolor4() {
-		document.getElementById("bluePlayerPicker").value =
-			document.getElementById("bluePlayerColor").value;
-	}
-	function orangecolor4() {
-		document.getElementById("orangepicker2").value =
-			document.getElementById("orng-color-2").value;
-	}
-	function bluecolortobox4() {
-		document.getElementById("bluePlayerColor").value =
-			document.getElementById("bluePlayerPicker").value;
-	}
-	function orangecolortobox4() {
-		document.getElementById("orng-color-2").value =
-			document.getElementById("orangepicker2").value;
-	}
-
-
-	function bluecolor5() {
-		document.getElementById("blueFocsPicker").value =
-			document.getElementById("blueFocsColor").value;
-	}
-	function orangecolor5() {
-		document.getElementById("orangepicker2").value =
-			document.getElementById("orng-color-2").value;
-	}
-	function bluecolortobox5() {
-		document.getElementById("blueFocsColor").value =
-			document.getElementById("blueFocsPicker").value;
-	}
-	function orangecolortobox5() {
-		document.getElementById("orng-color-2").value =
-			document.getElementById("orangepicker2").value;
-	}
 	function invertBG() {
 		document.body.style.backgroundColor = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "rgb(24, 25, 26)"
 		document.getElementById("bn-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
@@ -212,49 +177,19 @@
 				style="width: 200; height: 200;"
 			/>
 			<br>
-			<label for="blueTeamColor">Blue Team Name Color</label>
+			<label for="blueOverride">Blue Color Override</label>
 			<input
 				type="text"
-				id="blueTeamColor"
-				name="blueTeamColor"
+				id="blueOverride"
+				name="blueOverride"
 				value="#ffffff"
 				on:keyup={() => bluecolor3()}
 			/>
 			<input 
 				type="color" 
-				id="blueTeamPicker" 
+				id="blueOverridePicker" 
 				value="#ffffff" 
 				on:change="{bluecolortobox3}"
-			/>
-			<br>
-			<label for="bluePlayerColor">Blue PlayerName Color</label>
-			<input
-				type="text"
-				id="bluePlayerColor"
-				name="bluePlayerColor"
-				value="#000000"
-				on:keyup={() => bluecolor4()}
-			/>
-			<input 
-				type="color" 
-				id="bluePlayerPicker" 
-				value="#000000" 
-				on:change="{bluecolortobox4}"
-			/>
-			<br>
-			<label for="blueFocsColor">Blue Focs Card Color</label>
-			<input
-				type="text"
-				id="blueFocsColor"
-				name="blueFocsColor"
-				value="#ffffff"
-				on:keyup={() => bluecolor5()}
-			/>
-			<input 
-				type="color" 
-				id="blueFocsPicker" 
-				value="#ffffff" 
-				on:change="{bluecolortobox5}"
 			/>
 		</div>
 		<div style="padding-left: 20px;">
@@ -287,6 +222,21 @@
 				value="#852a2a"
 				on:change={() => orangecolortobox2()}
 				style="width: 200; height: 200;"
+			/>
+			<br>
+			<label for="orngOverride">Orange Color Override</label>
+			<input
+				type="text"
+				id="orngOverride"
+				name="orngOverride"
+				value="#ffffff"
+				on:keyup={() => orangecolor3()}
+			/>
+			<input 
+				type="color" 
+				id="orngOverridePicker" 
+				value="#ffffff" 
+				on:change="{orangecolortobox3}"
 			/>
 		</div>
 	</div>
