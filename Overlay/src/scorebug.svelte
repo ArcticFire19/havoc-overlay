@@ -205,10 +205,10 @@
                   <polygon id="blue-score-bg" points="157.64 249.78 214.64 306.79 298.37 306.79 241.64 249.79 157.64 249.78" style="fill: url(#blue-score-gradient)"/>
                   <text id="blue-score" transform="translate(232.38 279.32)" text-anchor="middle" dominant-baseline="middle" style="font-size: 51px;font-family: IntegralCF-Regular, Integral CF"></text>
                   <polygon id="blue-tick-bg" points="675.64 317.79 675.64 330.82 665.64 340.82 654.57 340.82 651.6 343.79 492.68 343.79 466.69 317.8 675.64 317.79" style="fill: url(#blue-tick-bg-gradient)"/>
-                  <rect id="blue-tick-1" x="603.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
-                  <rect id="blue-tick-2" x="567.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
-                  <rect id="blue-tick-3" x="530.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
-                  <rect id="blue-tick-4" x="493.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="blue-tick-1" x="615.03" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="blue-tick-2" x="579.03" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="blue-tick-3" x="542.03" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="blue-tick-4" x="505.03" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
                 </g>
                 <g id="red-team">
                   <g id="red-team-name-bg">
@@ -221,10 +221,10 @@
                   <polygon id="red-score-bg" points="1531.64 249.81 1474.66 306.79 1390.73 306.79 1447.73 249.79 1531.64 249.81" style="fill: url(#red-score-bg-gradient)"/>
                   <text id="red-score" transform="translate(1460.17 279.73)" text-anchor="middle" dominant-baseline="middle" style="font-size: 51px;font-family: IntegralCF-Regular, Integral CF"></text>
                   <polygon id="red-tick-bg" points="1222.64 317.79 1196.67 343.77 1037.67 343.77 1034.7 340.8 1023.73 340.8 1013.64 330.7 1013.64 317.79 1222.64 317.79" style="fill: url(#red-tick-bg-gradient)"/>
-                  <rect id="red-tick-1" x="1058.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
-                  <rect id="red-tick-2" x="1094.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
-                  <rect id="red-tick-3" x="1131.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
-                  <rect id="red-tick-4" x="1168.64" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="red-tick-1" x="1047" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="red-tick-2" x="1083" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="red-tick-3" x="1120" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
+				  <rect id="red-tick-4" x="1157" y="334.79" width="27" height="5" style="fill: #ffffff00; stroke: #fff"/>
                 </g>
                 <g id="center-area">
                   <polygon id="best-of-box" points="675.64 330.82 1013.64 330.82 973.17 361.29 716.1 361.29 675.64 330.82" style="fill: url(#best-of-bg-gradient)"/>

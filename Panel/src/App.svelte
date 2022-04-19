@@ -14,7 +14,7 @@
 		}
 	}
 	function orngUp() {
-		if (document.getElementById("orngWins").value != 4) {v
+		if (document.getElementById("orngWins").value != 4) {
 			document.getElementById("orngWins").value =
 				parseInt(document.getElementById("orngWins").value) + 1;
 		}
