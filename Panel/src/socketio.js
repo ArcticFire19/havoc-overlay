@@ -30,6 +30,8 @@ export const updateScreen = () => {
               blueColor2:document.getElementById("blue-color-2").value,
 	            orngName:document.getElementById("orng-name").value,
 	            blueName:document.getElementById("blue-name").value,
+              orngOverride:document.getElementById("orngOverride").value,
+              blueOverride:document.getElementById("blueOverride").value,
           },
       },
   };

@@ -5,6 +5,7 @@
 	import { reset } from "./socketio";
 	onMount(() => {
 		createPanelConnection();
+		invertBG()
 	});
 	function blueUp() {
 		if (document.getElementById("blueWins").value != 4) {
@@ -31,6 +32,11 @@
 		document.getElementById("orangepicker2").value = "#852a2a";
 		document.getElementById("bluepicker").value = "#12b1d6";
 		document.getElementById("bluepicker2").value = "#255aa7";
+		
+		document.getElementById("orngOverride").value = "";
+		document.getElementById("blueOverride").value = "";
+		document.getElementById("orngOverridePicker").value = "";
+		document.getElementById("blueOverridePicker").value = "";
 	}
 	function bluecolor() {
 		document.getElementById("bluepicker").value =
@@ -94,10 +100,14 @@
 		document.getElementById("ow-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 		document.getElementById("bc-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 		document.getElementById("oc-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
+		document.getElementById("bv-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
+		document.getElementById("ov-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 	}
 </script>
 
 <main>
+	<img src="favicon.png" alt="" width="200" style="padding-left: 80px;">
+	<br>
 	<button on:click="{invertBG}">Panel Dark Mode</button>
 	<label id="sl-label" for="series-length">Choose a Series Length</label>
 
@@ -109,11 +119,16 @@
 		<option value="Best of 7">Best of 7</option>
 	</datalist>
 	<br /><br />
-	<label id="bn-label" for="blue-name">Input blue name here</label>
-	<input type="text" id="blue-name" name="blue-name" value="" />
-	<label id="on-label" for="orng-name">Input orange name here</label>
-	<input type="text" id="orng-name" name="orng-name" value="" />
-
+	<div style="display: flex;">
+		<div>
+			<label id="bn-label" for="blue-name">Input blue name here</label>
+			<input type="text" id="blue-name" name="blue-name" value="" />
+		</div>
+		<div style="padding-left: 20px">
+			<label id="on-label" for="orng-name">Input orange name here</label>
+			<input type="text" id="orng-name" name="orng-name" value="" />
+		</div>
+	</div>
 	<br /><br />
 
 	<div style="display: flex;">
@@ -126,6 +141,7 @@
 				min="0"
 				max="4"
 				value="0"
+				style="width: 90px;"
 			/>
 			<button style="width: 100px" class="bluebtn" on:click={() => blueUp()}>Blue Win</button>
 		</div>
@@ -139,6 +155,7 @@
 				min="0"
 				max="4"
 				value="0"
+				style="width: 90px;"
 			/>
 			<button style="width: 100px" class="orngbtn" on:click={() => orngUp()}>Orange Win</button>
 		</div>
@@ -177,18 +194,18 @@
 				style="width: 200; height: 200;"
 			/>
 			<br>
-			<label for="blueOverride">Blue Color Override</label>
+			<label id="bv-label" for="blueOverride">Blue Color Override</label>
 			<input
 				type="text"
 				id="blueOverride"
 				name="blueOverride"
-				value="#ffffff"
+				value=""
 				on:keyup={() => bluecolor3()}
 			/>
 			<input 
 				type="color" 
 				id="blueOverridePicker" 
-				value="#ffffff" 
+				value="" 
 				on:change="{bluecolortobox3}"
 			/>
 		</div>
@@ -224,18 +241,18 @@
 				style="width: 200; height: 200;"
 			/>
 			<br>
-			<label for="orngOverride">Orange Color Override</label>
+			<label id="ov-label" for="orngOverride">Orange Color Override</label>
 			<input
 				type="text"
 				id="orngOverride"
 				name="orngOverride"
-				value="#ffffff"
+				value=""
 				on:keyup={() => orangecolor3()}
 			/>
 			<input 
 				type="color" 
 				id="orngOverridePicker" 
-				value="#ffffff" 
+				value="" 
 				on:change="{orangecolortobox3}"
 			/>
 		</div>

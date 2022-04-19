@@ -10,6 +10,8 @@ let defaultPanelData = {
   blueColor2: "#255aa7",
   orngName: "Orange",
   blueName: "Blue",
+  orngOverride: "",
+  blueOverride: "",
 }
 export const isReplay = writable(false);
 export const isInGame = writable(false);
@@ -43,19 +45,23 @@ export const createSocketConnection = () => {
         let blueColor = payload.data.contents.blueColor;
         let orngColor2 = payload.data.contents.orngColor2;
         let blueColor2 = payload.data.contents.blueColor2;
-	      let orngName = payload.data.contents.orngName;
+	    let orngName = payload.data.contents.orngName;
         let blueName = payload.data.contents.blueName;
+	    let orngOverride = payload.data.contents.orngOverride;
+        let blueOverride = payload.data.contents.blueOverride;
 
         let panelSendData = {
-          series: series,
-          blueScore: blueScore,
-          orngScore: orngScore,
-          orngColor: orngColor,
-          blueColor: blueColor,
-          orngColor2: orngColor2,
-          blueColor2: blueColor2,
-	        orngName: orngName,
-          blueName: blueName,
+			series: series,
+			blueScore: blueScore,
+			orngScore: orngScore,
+			orngColor: orngColor,
+			blueColor: blueColor,
+			orngColor2: orngColor2,
+			blueColor2: blueColor2,
+			orngName: orngName,
+			blueName: blueName,
+			orngOverride: orngOverride,
+			blueOverride: blueOverride,
         }
 
         console.log(panelSendData)
