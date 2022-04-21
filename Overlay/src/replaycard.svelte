@@ -24,11 +24,6 @@
             document.getElementById("replay-assister").style.fontSize = "30px";
             resize_to_fit(document.getElementById("replay-assister"), 170);
         }
-        if(document.getElementById("outer-replay") && $stingerBool){
-            document.getElementById("outer-replay").style.display = 'none'
-        } else if(document.getElementById("outer-replay")){
-            document.getElementById("outer-replay").style.display = 'block'
-        }
     }
     
 </script>
@@ -39,7 +34,7 @@
     class="outer-replay"
     style="opacity: {!$isInGame
         ? 0
-        : $isReplay
+        : $isReplay && !$stingerBool
         ? 1
         : 0}; transition: opacity .5s;"
     >
