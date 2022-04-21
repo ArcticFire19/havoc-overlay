@@ -101,7 +101,10 @@
 		document.getElementById("bc-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 		document.getElementById("oc-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 		document.getElementById("bv-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
+		document.getElementById("blue-url-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 		document.getElementById("ov-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
+		document.getElementById("orng-url-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
+
 	}
 </script>
 
@@ -109,157 +112,209 @@
 	<img src="favicon.png" alt="" width="200" style="padding-left: 80px;">
 	<br>
 	<button on:click="{invertBG}">Panel Dark Mode</button>
-	<label id="sl-label" for="series-length">Choose a Series Length</label>
-
-	<input list="series-length-list" name="series-length" id="series-length" />
-	<datalist id="series-length-list">
-		<option value="Best of 1">Best of 1</option>
-		<option value="Best of 3">Best of 3</option>
-		<option value="Best of 5">Best of 5</option>
-		<option value="Best of 7">Best of 7</option>
-	</datalist>
-	<br /><br />
 	<div style="display: flex;">
 		<div>
-			<label id="bn-label" for="blue-name">Input blue name here</label>
-			<input type="text" id="blue-name" name="blue-name" value="" />
-		</div>
-		<div style="padding-left: 20px">
-			<label id="on-label" for="orng-name">Input orange name here</label>
-			<input type="text" id="orng-name" name="orng-name" value="" />
-		</div>
-	</div>
-	<br /><br />
+			<label id="sl-label" for="series-length">Choose a Series Length</label>
 
-	<div style="display: flex;">
-		<div>
-			<label id="bw-label" for="blueWins">Set wins for Blue (left)</label>
-			<input
-				type="number"
-				id="blueWins"
-				name="blueWins"
-				min="0"
-				max="4"
-				value="0"
-				style="width: 90px;"
-			/>
-			<button style="width: 100px" class="bluebtn" on:click={() => blueUp()}>Blue Win</button>
-		</div>
-		<div style="padding-left: 20px;">
-			<label id="ow-label" for="orngWins">Set wins for orange (right)</label>
+			<input list="series-length-list" name="series-length" id="series-length" />
+			<datalist id="series-length-list">
+				<option value="Best of 1">Best of 1</option>
+				<option value="Best of 3">Best of 3</option>
+				<option value="Best of 5">Best of 5</option>
+				<option value="Best of 7">Best of 7</option>
+			</datalist>
+			<br /><br />
+			<div style="display: flex;">
+				<div>
+					<label id="bn-label" for="blue-name">Input blue name here</label>
+					<input type="text" id="blue-name" name="blue-name" value="" />
+				</div>
+				<div style="padding-left: 20px">
+					<label id="on-label" for="orng-name">Input orange name here</label>
+					<input type="text" id="orng-name" name="orng-name" value="" />
+				</div>
+			</div>
+			<br /><br />
 
-			<input
-				type="number"
-				id="orngWins"
-				name="orngWins"
-				min="0"
-				max="4"
-				value="0"
-				style="width: 90px;"
-			/>
-			<button style="width: 100px" class="orngbtn" on:click={() => orngUp()}>Orange Win</button>
+			<div style="display: flex;">
+				<div>
+					<label id="bw-label" for="blueWins">Set wins for Blue (left)</label>
+					<input
+						type="number"
+						id="blueWins"
+						name="blueWins"
+						min="0"
+						max="4"
+						value="0"
+						style="width: 90px;"
+					/>
+					<button style="width: 100px" class="bluebtn" on:click={() => blueUp()}>Blue Win</button>
+				</div>
+				<div style="padding-left: 20px;">
+					<label id="ow-label" for="orngWins">Set wins for orange (right)</label>
+
+					<input
+						type="number"
+						id="orngWins"
+						name="orngWins"
+						min="0"
+						max="4"
+						value="0"
+						style="width: 90px;"
+					/>
+					<button style="width: 100px" class="orngbtn" on:click={() => orngUp()}>Orange Win</button>
+				</div>
+			</div>
+			<br /><br />
+			<div id="colors" class="colors" style="display: flex;">
+				<div>
+					<label id="bc-label" for="blue-color">Input blue colors here</label>
+					<input
+						type="text"
+						id="blue-color"
+						name="blue-color"
+						value="#12b1d5"
+						on:keyup={() => bluecolor()}
+					/>
+					<input
+						type="color"
+						id="bluepicker"
+						value="#12b1d5"
+						on:change={() => bluecolortobox()}
+						style="width: 200; height: 200;"
+					/>
+					<br>
+					<input
+						type="text"
+						id="blue-color-2"
+						name="blue-color-2"
+						value="#255aa7"
+						on:keyup={() => bluecolor2()}
+					/>
+					<input
+						type="color"
+						id="bluepicker2"
+						value="#255aa7"
+						on:change={() => bluecolortobox2()}
+						style="width: 200; height: 200;"
+					/>
+					<br>
+					<label id="bv-label" for="blueOverride">Blue Color Override</label>
+					<input
+						type="text"
+						id="blueOverride"
+						name="blueOverride"
+						value=""
+						on:keyup={() => bluecolor3()}
+					/>
+					<input 
+						type="color" 
+						id="blueOverridePicker" 
+						value="" 
+						on:change="{bluecolortobox3}"
+					/>
+				</div>
+				<div style="padding-left: 20px;">
+					<label id="oc-label" for="orng-color">Input orange colors here</label>
+					<input
+						type="text"
+						id="orng-color"
+						name="orng-color"
+						value="#dc1d26"
+						on:keyup={() => orangecolor()}
+					/>
+					<input
+						type="color"
+						id="orangepicker"
+						value="#dc1d26"
+						on:change={() => orangecolortobox()}
+						style="width: 200; height: 200;"
+					/>
+					<br>
+					<input
+						type="text"
+						id="orng-color-2"
+						name="orng-color-2"
+						value="#852a2a"
+						on:keyup={() => orangecolor2()}
+					/>
+					<input
+						type="color"
+						id="orangepicker2"
+						value="#852a2a"
+						on:change={() => orangecolortobox2()}
+						style="width: 200; height: 200;"
+					/>
+					<br>
+					<label id="ov-label" for="orngOverride">Orange Color Override</label>
+					<input
+						type="text"
+						id="orngOverride"
+						name="orngOverride"
+						value=""
+						on:keyup={() => orangecolor3()}
+					/>
+					<input 
+						type="color" 
+						id="orngOverridePicker" 
+						value="" 
+						on:change="{orangecolortobox3}"
+					/>
+				</div>
+			</div>
 		</div>
-	</div>
-	<br /><br />
-	<div id="colors" class="colors" style="display: flex;">
-		<div>
-			<label id="bc-label" for="blue-color">Input blue colors here</label>
-			<input
-				type="text"
-				id="blue-color"
-				name="blue-color"
-				value="#12b1d5"
-				on:keyup={() => bluecolor()}
-			/>
-			<input
-				type="color"
-				id="bluepicker"
-				value="#12b1d5"
-				on:change={() => bluecolortobox()}
-				style="width: 200; height: 200;"
-			/>
-			<br>
-			<input
-				type="text"
-				id="blue-color-2"
-				name="blue-color-2"
-				value="#255aa7"
-				on:keyup={() => bluecolor2()}
-			/>
-			<input
-				type="color"
-				id="bluepicker2"
-				value="#255aa7"
-				on:change={() => bluecolortobox2()}
-				style="width: 200; height: 200;"
-			/>
-			<br>
-			<label id="bv-label" for="blueOverride">Blue Color Override</label>
-			<input
-				type="text"
-				id="blueOverride"
-				name="blueOverride"
-				value=""
-				on:keyup={() => bluecolor3()}
-			/>
-			<input 
-				type="color" 
-				id="blueOverridePicker" 
-				value="" 
-				on:change="{bluecolortobox3}"
-			/>
-		</div>
-		<div style="padding-left: 20px;">
-			<label id="oc-label" for="orng-color">Input orange colors here</label>
-			<input
-				type="text"
-				id="orng-color"
-				name="orng-color"
-				value="#dc1d26"
-				on:keyup={() => orangecolor()}
-			/>
-			<input
-				type="color"
-				id="orangepicker"
-				value="#dc1d26"
-				on:change={() => orangecolortobox()}
-				style="width: 200; height: 200;"
-			/>
-			<br>
-			<input
-				type="text"
-				id="orng-color-2"
-				name="orng-color-2"
-				value="#852a2a"
-				on:keyup={() => orangecolor2()}
-			/>
-			<input
-				type="color"
-				id="orangepicker2"
-				value="#852a2a"
-				on:change={() => orangecolortobox2()}
-				style="width: 200; height: 200;"
-			/>
-			<br>
-			<label id="ov-label" for="orngOverride">Orange Color Override</label>
-			<input
-				type="text"
-				id="orngOverride"
-				name="orngOverride"
-				value=""
-				on:keyup={() => orangecolor3()}
-			/>
-			<input 
-				type="color" 
-				id="orngOverridePicker" 
-				value="" 
-				on:change="{orangecolortobox3}"
-			/>
+		<div style="padding-left: 100px; display: flex;">
+			<div id="blue-urls">
+				<div id="blue-url-label" style="color: white;">Blue Webcam Urls</div>
+				<input type="url" name="" id="blue1-url" style="height: 40px;">
+				<br>
+				<input type="url" name="" id="blue2-url" style="height: 40px;">
+				<br>
+				<input type="url" name="" id="blue3-url" style="height: 40px;">
+				<br>
+				<input type="url" name="" id="blue4-url" style="height: 40px;">
+				<br>
+				<button id="blue-toggle-all-urls" style="height: 40px">Toggle All Blue Players</button>
+			</div>
+			<div id="blue-url-btns" style="padding-left: 15px;">
+				<br>
+				<button id="blue1btn" style="height: 40px;">Toggle Blue Player 1</button>
+				<br>
+				<button id="blue2btn" style="height: 40px;">Toggle Blue Player 2</button>
+				<br>
+				<button id="blue3btn" style="height: 40px;">Toggle Blue Player 3</button>
+				<br>
+				<button id="blue4btn" style="height: 40px;">Toggle Blue Player 4</button>
+			</div>
+			<div id="orng-urls" style="padding-left: 30px;">
+				<div id="orng-url-label" style="color: white;">Orange Webcam Urls</div>
+				<input type="url" name="" id="orng1-url" style="height: 40px;">
+				<br>
+				<input type="url" name="" id="orng2-url" style="height: 40px;">
+				<br>
+				<input type="url" name="" id="orng3-url" style="height: 40px;">
+				<br>
+				<input type="url" name="" id="orng4-url" style="height: 40px;">
+				<br>
+				<button id="orng-toggle-all-urls" style="height: 40px">Toggle All Orange Players</button>
+			</div>
+			<div id="orng-url-btns" style="padding-left: 15px;">
+				<br>
+				<button id="orng1btn" style="height: 40px;">Toggle Orange Player 1</button>
+				<br>
+				<button id="orng2btn" style="height: 40px;">Toggle Orange Player 2</button>
+				<br>
+				<button id="orng3btn" style="height: 40px;">Toggle Orange Player 3</button>
+				<br>
+				<button id="orng4btn" style="height: 40px;">Toggle Orange Player 4</button>
+			</div>
 		</div>
 	</div>
 
 	<button id="update-btn" on:click={() => updateScreen()}>Update</button>
+
 	<button id="reset-wins" on:click={() => resetWins()}>Reset Wins</button>
+
 	<button id="reset-colors" on:click={() => resetColors()}
 		>Reset Colors</button
 	>
