@@ -40,7 +40,7 @@
         ? 1
         : 0}; transition: opacity .5s;"
     >
-    <svg xmlns="http://www.w3.org/2000/svg" transform="translate(10 , 845)" xmlns:xlink="http://www.w3.org/1999/xlink" width="586" height="111" viewBox="0 0 585.85 111.48">
+    <svg xmlns="http://www.w3.org/2000/svg" transform="translate(10 , 880)" xmlns:xlink="http://www.w3.org/1999/xlink" width="586" height="111" viewBox="0 0 585.85 111.48">
         <defs>
           <linearGradient id="replay-bg-gradient" data-name="New Gradient Swatch 2" y1="55.74" x2="585.85" y2="55.74" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="{$goalData?.team == 0 ? $panelData.blueColor : $goalData?.team == 1 ? $panelData.orngColor : "#ffffff00"}"/>
