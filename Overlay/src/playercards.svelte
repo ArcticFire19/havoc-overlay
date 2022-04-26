@@ -75,18 +75,18 @@
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="326" height="29.36" viewBox="0 0 326 29.36" style="padding-bottom: 10px;">
                         <defs>
                             <linearGradient id="linear-gradient-3" gradientUnits="objectBoundingBox">
-                                <stop offset="0" stop-color="{$panelData.orngColor ? $panelData.orngColor : "#ffffff00"}"/>
-                                <stop offset="1" stop-color="{$panelData.orngColor2 ? $panelData.orngColor2 : "#ffffff00"}"/>
+                                <stop offset="0" stop-color="{$panelData.orngColor2 ? $panelData.orngColor2 : "#ffffff00"}"/>
+                                <stop offset="1" stop-color="{$panelData.orngColor ? $panelData.orngColor : "#ffffff00"}"/>
                             </linearGradient>
                             <clipPath id="bg-clip-2">
-                                <polygon points="295.94 28.36 2.43 28.36 30.05 1 323.56 1 295.94 28.36" style="fill: {$panelData.orngOverride != "" ? $panelData.orngOverride : "#000"};stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+                                <polygon points="30.06 28.36 323.56 28.36 295.94 1 2.43 1 30.06 28.36" style="fill: {$panelData.orngOverride != "" ? $panelData.orngOverride : "#000"};stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
                             </clipPath>
                         </defs>
                         <g id="playercard">
-                            <polygon id="Background-pc" points="295.94 28.36 2.43 28.36 30.05 1 323.56 1 295.94 28.36" fill="url(#linear-gradient-3)" style="stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
-                            <line id="line-pc" stroke-width="8px" stroke={$panelData.orngOverride != "" ? $panelData.orngOverride : "#fff"} x1="2" y1="28" x2="{orangePlayers[num].boost/100 * 300}" y2="28" clip-path="url(#bg-clip-2)"/>
-                            <text id="playername" transform="translate(28.93 21.36)" style="fill: {$panelData.orngOverride != "" ? $panelData.orngOverride : "#000"}; font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.03em">{orangePlayers[num].name}</text>
-                            <text id="boost" transform="translate(258.69 21.36)" style="fill: {$panelData.orngOverride != "" ? $panelData.orngOverride : "#000"}; font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.01em">{orangePlayers[num].boost}</text>
+                            <polygon id="Background-pc" points="30.06 28.36 323.56 28.36 295.94 1 2.43 1 30.06 28.36" fill="url(#linear-gradient-3)" style="stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+                            <line id="line-pc" stroke-width="8px" stroke={$panelData.orngOverride != "" ? $panelData.orngOverride : "#fff"} x1="{(100-orangePlayers[num].boost)*3+26}" y1="28" x2="325" y2="28" clip-path="url(#bg-clip-2)"/>
+                            <text id="playername" text-anchor="end" transform="translate(295.69 21.36)" style="fill: {$panelData.orngOverride != "" ? $panelData.orngOverride : "#000"}; font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.03em">{orangePlayers[num].name}</text>
+                            <text id="boost" transform="translate(28.93 21.36)" style="fill: {$panelData.orngOverride != "" ? $panelData.orngOverride : "#000"}; font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.01em">{orangePlayers[num].boost}</text>
                         </g>
                     </svg>
                 {:else}
