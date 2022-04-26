@@ -12,17 +12,19 @@
     });
     $: {
         if($goalData?.scorer && isMounted){
-        setTimeout(() => {
-            console.log("testscorer")
-            document.getElementById("replay-scorer").style.fontSize = "33px";
-            resize_to_fit(document.getElementById("replay-scorer"), 170);
-            console.log("testscorer")
-        }, 500)
+            setTimeout(() => {
+                console.log("testscorer")
+                document.getElementById("replay-scorer").style.fontSize = "33px";
+                resize_to_fit(document.getElementById("replay-scorer"), 170);
+                console.log("testscorer")
+            }, 500)
         }
         if($goalData?.assister && isMounted){
-            console.log("testassister")
-            document.getElementById("replay-assister").style.fontSize = "30px";
-            resize_to_fit(document.getElementById("replay-assister"), 170);
+            setTimeout(() => {
+                console.log("testassister")
+                document.getElementById("replay-assister").style.fontSize = "30px";
+                resize_to_fit(document.getElementById("replay-assister"), 170);
+            }, 500)
         }
     }
     
