@@ -2,7 +2,7 @@
 	import { createPanelConnection } from "./socketio";
 	import { updateScreen } from "./socketio";
 	import { onMount } from "svelte";
-	import { reset } from "./socketio";
+	import { reset, toggleCam } from "./socketio";
 	onMount(() => {
 		createPanelConnection();
 		invertBG()
@@ -105,6 +105,47 @@
 		document.getElementById("ov-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 		document.getElementById("orng-url-label").style.color = document.body.style.backgroundColor == "rgb(24, 25, 26)" ? "white" : "black"
 
+	}
+
+	let getSelectedCameras = () => {
+		toggleCam(document.getElementById("orng-cb-1").checked ? document.getElementById("orng1-url") : null,
+			document.getElementById("orng-cb-2").checked ? document.getElementById("orng2-url") : null,
+			document.getElementById("orng-cb-3").checked ? document.getElementById("orng3-url") : null,
+			document.getElementById("orng-cb-4").checked ? document.getElementById("orng4-url") : null,
+			document.getElementById("blue-cb-1").checked ? document.getElementById("blue1-url") : null,
+			document.getElementById("blue-cb-2").checked ? document.getElementById("blue2-url") : null,
+			document.getElementById("blue-cb-3").checked ? document.getElementById("blue3-url") : null,
+			document.getElementById("blue-cb-4").checked ? document.getElementById("blue4-url") : null)
+	}
+
+	let orngToggle = () => {
+		if(document.getElementById("orng-cb-1").checked && document.getElementById("orng-cb-2").checked && document.getElementById("orng-cb-3").checked && document.getElementById("orng-cb-4").checked){
+			document.getElementById("orng-cb-1").checked = false
+			document.getElementById("orng-cb-2").checked = false
+			document.getElementById("orng-cb-3").checked = false
+			document.getElementById("orng-cb-4").checked = false
+		}
+		else{
+			document.getElementById("orng-cb-1").checked = true
+			document.getElementById("orng-cb-2").checked = true
+			document.getElementById("orng-cb-3").checked = true
+			document.getElementById("orng-cb-4").checked = true
+		}
+	}
+	
+	let blueToggle = () => {
+		if(document.getElementById("blue-cb-1").checked && document.getElementById("blue-cb-2").checked && document.getElementById("blue-cb-3").checked && document.getElementById("blue-cb-4").checked){
+			document.getElementById("blue-cb-1").checked = false
+			document.getElementById("blue-cb-2").checked = false
+			document.getElementById("blue-cb-3").checked = false
+			document.getElementById("blue-cb-4").checked = false
+		}
+		else{
+			document.getElementById("blue-cb-1").checked = true
+			document.getElementById("blue-cb-2").checked = true
+			document.getElementById("blue-cb-3").checked = true
+			document.getElementById("blue-cb-4").checked = true
+		}
 	}
 </script>
 
@@ -274,17 +315,20 @@
 				<br>
 				<input type="url" name="" id="blue4-url" style="height: 40px;">
 				<br>
-				<button id="blue-toggle-all-urls" style="height: 40px">Toggle All Blue Players</button>
+				<button id="blue-toggle-all-urls" style="height: 40px" on:click={blueToggle}>Toggle All Blue Players</button>
+				<br>
+				<br>
+				<button on:click="{getSelectedCameras}">Update Cams</button>
 			</div>
 			<div id="blue-url-btns" style="padding-left: 15px;">
 				<br>
-				<button id="blue1btn" style="height: 40px;">Toggle Blue Player 1</button>
+				<input type="checkbox" name="" id="blue-cb-1" class="url-cb" style="margin-bottom: 30px; margin-top: 15px">
 				<br>
-				<button id="blue2btn" style="height: 40px;">Toggle Blue Player 2</button>
+				<input type="checkbox" name="" id="blue-cb-2" class="url-cb" style="margin-bottom: 30px;">
 				<br>
-				<button id="blue3btn" style="height: 40px;">Toggle Blue Player 3</button>
+				<input type="checkbox" name="" id="blue-cb-3" class="url-cb" style="margin-bottom: 30px;">
 				<br>
-				<button id="blue4btn" style="height: 40px;">Toggle Blue Player 4</button>
+				<input type="checkbox" name="" id="blue-cb-4" class="url-cb" style="margin-bottom: 30px;">
 			</div>
 			<div id="orng-urls" style="padding-left: 30px;">
 				<div id="orng-url-label" style="color: white;">Orange Webcam Urls</div>
@@ -296,17 +340,17 @@
 				<br>
 				<input type="url" name="" id="orng4-url" style="height: 40px;">
 				<br>
-				<button id="orng-toggle-all-urls" style="height: 40px">Toggle All Orange Players</button>
+				<button id="orng-toggle-all-urls" style="height: 40px" on:click={orngToggle}>Toggle All Orange Players</button>
 			</div>
 			<div id="orng-url-btns" style="padding-left: 15px;">
 				<br>
-				<button id="orng1btn" style="height: 40px;">Toggle Orange Player 1</button>
+				<input type="checkbox" name="" id="orng-cb-1" style="margin-bottom: 30px; margin-top: 15px;">
 				<br>
-				<button id="orng2btn" style="height: 40px;">Toggle Orange Player 2</button>
+				<input type="checkbox" name="" id="orng-cb-2" style="margin-bottom: 30px">
 				<br>
-				<button id="orng3btn" style="height: 40px;">Toggle Orange Player 3</button>
+				<input type="checkbox" name="" id="orng-cb-3" style="margin-bottom: 30px">
 				<br>
-				<button id="orng4btn" style="height: 40px;">Toggle Orange Player 4</button>
+				<input type="checkbox" name="" id="orng-cb-4" style="margin-bottom: 30px">
 			</div>
 		</div>
 	</div>
@@ -319,6 +363,3 @@
 		>Reset Colors</button
 	>
 </main>
-
-<style>
-</style>
