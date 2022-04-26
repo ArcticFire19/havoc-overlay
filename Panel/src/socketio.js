@@ -51,6 +51,7 @@ export const reset = () => {
 }
 
 export const toggleCam = (...cameras) => {
+	console.log(cameras);
 	let output = []
 	for (let x = 0; x < 8; x++){
 		if(cameras[x] != null){

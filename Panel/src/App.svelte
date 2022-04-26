@@ -108,14 +108,14 @@
 	}
 
 	let getSelectedCameras = () => {
-		toggleCam(document.getElementById("orng-cb-1").checked ? document.getElementById("orng1-url").value : null,
-			document.getElementById("orng-cb-2").checked ? document.getElementById("orng2-url").value : null,
-			document.getElementById("orng-cb-3").checked ? document.getElementById("orng3-url").value : null,
-			document.getElementById("orng-cb-4").checked ? document.getElementById("orng4-url").value : null,
-			document.getElementById("blue-cb-1").checked ? document.getElementById("blue1-url").value : null,
-			document.getElementById("blue-cb-2").checked ? document.getElementById("blue2-url").value : null,
-			document.getElementById("blue-cb-3").checked ? document.getElementById("blue3-url").value : null,
-			document.getElementById("blue-cb-4").checked ? document.getElementById("blue4-url").value : null)
+		toggleCam(document.getElementById("orng-cb-1").checked ? document.getElementById("orng1-url") : null,
+			document.getElementById("orng-cb-2").checked ? document.getElementById("orng2-url") : null,
+			document.getElementById("orng-cb-3").checked ? document.getElementById("orng3-url") : null,
+			document.getElementById("orng-cb-4").checked ? document.getElementById("orng4-url") : null,
+			document.getElementById("blue-cb-1").checked ? document.getElementById("blue1-url") : null,
+			document.getElementById("blue-cb-2").checked ? document.getElementById("blue2-url") : null,
+			document.getElementById("blue-cb-3").checked ? document.getElementById("blue3-url") : null,
+			document.getElementById("blue-cb-4").checked ? document.getElementById("blue4-url") : null)
 	}
 </script>
 
