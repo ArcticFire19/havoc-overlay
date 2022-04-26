@@ -117,6 +117,36 @@
 			document.getElementById("blue-cb-3").checked ? document.getElementById("blue3-url") : null,
 			document.getElementById("blue-cb-4").checked ? document.getElementById("blue4-url") : null)
 	}
+
+	let orngToggle = () => {
+		if(document.getElementById("orng-cb-1").checked && document.getElementById("orng-cb-2").checked && document.getElementById("orng-cb-3").checked && document.getElementById("orng-cb-4").checked){
+			document.getElementById("orng-cb-1").checked = false
+			document.getElementById("orng-cb-2").checked = false
+			document.getElementById("orng-cb-3").checked = false
+			document.getElementById("orng-cb-4").checked = false
+		}
+		else{
+			document.getElementById("orng-cb-1").checked = true
+			document.getElementById("orng-cb-2").checked = true
+			document.getElementById("orng-cb-3").checked = true
+			document.getElementById("orng-cb-4").checked = true
+		}
+	}
+	
+	let blueToggle = () => {
+		if(document.getElementById("blue-cb-1").checked && document.getElementById("blue-cb-2").checked && document.getElementById("blue-cb-3").checked && document.getElementById("blue-cb-4").checked){
+			document.getElementById("blue-cb-1").checked = false
+			document.getElementById("blue-cb-2").checked = false
+			document.getElementById("blue-cb-3").checked = false
+			document.getElementById("blue-cb-4").checked = false
+		}
+		else{
+			document.getElementById("blue-cb-1").checked = true
+			document.getElementById("blue-cb-2").checked = true
+			document.getElementById("blue-cb-3").checked = true
+			document.getElementById("blue-cb-4").checked = true
+		}
+	}
 </script>
 
 <main>
@@ -285,7 +315,7 @@
 				<br>
 				<input type="url" name="" id="blue4-url" style="height: 40px;">
 				<br>
-				<button id="blue-toggle-all-urls" style="height: 40px">Toggle All Blue Players</button>
+				<button id="blue-toggle-all-urls" style="height: 40px" on:click={blueToggle}>Toggle All Blue Players</button>
 				<br>
 				<br>
 				<button on:click="{getSelectedCameras}">Update Cams</button>
@@ -310,7 +340,7 @@
 				<br>
 				<input type="url" name="" id="orng4-url" style="height: 40px;">
 				<br>
-				<button id="orng-toggle-all-urls" style="height: 40px">Toggle All Orange Players</button>
+				<button id="orng-toggle-all-urls" style="height: 40px" on:click={orngToggle}>Toggle All Orange Players</button>
 			</div>
 			<div id="orng-url-btns" style="padding-left: 15px;">
 				<br>
