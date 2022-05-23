@@ -27,7 +27,8 @@ let defaultCams = {
 }
 export const isReplay = writable(false);
 export const isInGame = writable(false);
-export const stingerBool = writable(false)
+export const stingerBool = writable(false);
+export const camloaderstore = writable([[-1,-1,-1,-1],[-1,-1,-1,-1]]);
 export let goalData = writable(null);
 export const panelData = writable(defaultPanelData);
 export const camData = writable(defaultCams);

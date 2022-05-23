@@ -1,7 +1,8 @@
 <script>
     import { onMount } from "svelte";
+    import { writable } from "svelte/store";
     import { resize_to_fit } from "./resizeToFit.js";
-    import { isReplay, stingerBool, isInGame, panelData, data, camData } from "./socketio.js";
+    import { isReplay, stingerBool, isInGame, panelData, data, camData, camloaderstore } from "./socketio.js";
     onMount(() => {
         console.log("playercards loaded");
     });
@@ -10,6 +11,7 @@
     let orangePlayers = []
     let orangeNums = []
     let cams = []
+    
     $: {
         cams = [$camData["blue1"],$camData["blue2"],$camData["blue3"],$camData["blue4"],$camData["orng1"],$camData["orng2"],$camData["orng3"],$camData["orng4"]]
         bluePlayers = []
@@ -35,13 +37,44 @@
             document.getElementById("outer-pc").style.display = 'flex'
         }
 
-        console.log(bluePlayers, orangePlayers)
+        console.log(bluePlayers, orangePlayers, blueNums)
         
+        for(let x = 0;x<blueNums.length;x++){
+            $camloaderstore[0][blueNums[x]] = 0
+        }
+        for(let x = 0;x<orangeNums.length;x++){
+            $camloaderstore[1][orangeNums[x]] = 0
+        }
     }
 </script>
 
 <main >
     <div id="outer-pc" style="display: flex">
+        <script>
+            function camloaded(num, team, camloader) {
+                console.log(num, team, $camloader)
+                camloader[team][num] = 1;
+                camloaderstore.set(camloader)
+                for(let x=0;x<4;x++){
+                    console.log(camloader[0][x], camloader[1][x])
+                    if(camloader[0][x] == 0){
+                        break
+                    }
+                    else if(camloader[1][x] == 0){
+                        break
+                    }
+                    if(x==3){
+                        document.getElementById(`bplayer0-cam`).style.opacity = 1
+                        document.getElementById(`bplayer1-cam`).style.opacity = 1
+                        document.getElementById(`bplayer2-cam`).style.opacity = 1
+                        
+                        document.getElementById(`oplayer0-cam`).style.opacity = 1
+                        document.getElementById(`oplayer1-cam`).style.opacity = 1
+                        document.getElementById(`oplayer2-cam`).style.opacity = 1
+                    }
+                }
+            }
+        </script>
         <div style="display: grid">
             {#each blueNums as num}
                 {#if cams[num] == ""}
@@ -64,7 +97,8 @@
                         </g>
                     </svg>
                 {:else}
-                    <iframe allow="autoplay;microphone;camera;" width="326px" height="183.4px" src="{cams[num]}&cleanoutput&transparent" title="playercam" style="padding-bottom: 10px; border: 0"></iframe>
+                    <div id="playername" style="color: {$panelData.blueOverride != "" ? $panelData.blueOverride : "#fff"};font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.03em; position: absolute; padding-top: {155+(40*num)+(153*num)}px; padding-left: 10px">{bluePlayers[num].name}</div>
+                    <iframe id="bplayer{num}-cam" allow="autoplay;microphone;camera;" onload="camloaded({num}, 0, {camloaderstore})" width="326px" height="183.4px" src="{cams[num]}&cleanoutput&transparent" title="playercam" style="padding-bottom: 10px; border: 0;opacity: 0"></iframe>
                 {/if}
             {/each}
         </div>
@@ -90,7 +124,8 @@
                         </g>
                     </svg>
                 {:else}
-                    <iframe allow="autoplay;microphone;camera;" width="326px" height="183.4px" src="{cams[num+4]}&cleanoutput&transparent" title="playercam" style="padding-bottom: 10px; border: 0"></iframe>
+                    <div id="playername" style="color: {$panelData.orngOverride != "" ? $panelData.orngOverride : "#fff"};font-size: 18px;font-family: IntegralCF-Regular, Integral CF;letter-spacing: 0.03em; position: absolute; text-align: right; width: 314px; top: {155+(40*num)+(153*num)}px;">{orangePlayers[num].name}</div>
+                    <iframe id="oplayer{num}-cam" allow="autoplay;microphone;camera;" onload="camloaded({num}, 1, {camloaderstore})" width="326px" height="183.4px" src="{cams[num+4]}&cleanoutput&transparent" title="playercam" style="padding-bottom: 10px; border: 0;opacity: 0"></iframe>
                 {/if}
             {/each}
         </div>
